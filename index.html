@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مساعد الدراسة العربي</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    .box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #0001;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 150px;
+      padding: 12px;
+      margin: 12px 0;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: 0;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef4ff;
+      border-radius: 8px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>مساعد الدراسة العربي</h1>
+    <p>اكتب موضوعاً دراسياً، وسيقترح لك أسئلة للمراجعة.</p>
+
+    <textarea id="topic" placeholder="مثال: الطاقة المتجددة"></textarea>
+    <button onclick="generateQuestions()">إنشاء أسئلة</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function generateQuestions() {
+      const topic = document.getElementById("topic").value.trim();
+      const result = document.getElementById("result");
+
+      if (!topic) {
+        result.textContent = "اكتب موضوعاً أولاً.";
+        return;
+      }
+
+      result.textContent =
+        "أسئلة مقترحة عن: " + topic + "\n\n" +
+        "1. ما المقصود بـ " + topic + "؟\n" +
+        "2. ما أهم استخداماته أو فوائده؟\n" +
+        "3. ما أبرز التحديات المتعلقة به؟\n" +
+        "4. اذكر مثالاً عملياً عليه.\n" +
+        "5. كيف يمكن تطويره أو الاستفادة منه مستقبلاً؟\n\n" +
+        "ملاحظة: هذه نسخة تجريبية. سيتم ربطها لاحقاً بنموذج ذكاء اصطناعي.";
+    }
+  </script>
+</body>
+</html>
